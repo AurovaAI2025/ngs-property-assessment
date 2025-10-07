@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NGS Security Custom Styles */
+@layer components {
+  .btn-ngs {
+    @apply px-8 py-4 rounded-lg font-semibold transition-colors cursor-pointer whitespace-nowrap text-white;
+    background-color: rgb(61, 141, 153);
+  }
+  
+  .btn-ngs:hover {
+    background-color: rgb(54, 125, 136);
+  }
+  
+  .btn-angled {
+    @apply rounded-lg;
+    position: relative;
+  }
+  
+  .btn-angled:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: inherit;
+    z-index: -1;
+  }
+}
+
+/* Base typography: use Tailwind's font-sans (Montserrat) */
+@layer base {
+	html { @apply font-sans antialiased; }
+	body { @apply font-sans text-gray-800; }
+	h1, h2, h3, h4, h5, h6 { @apply font-heading font-bold; }
+}
+
+/* Components: NGS-style buttons (asymmetric rounded like screenshot) */
+@layer components {
+	.btn-ngs {
+			/* Asymmetric diagonal radius per request */
+			border-radius: 15px 0 15px 0;
+		background-color: rgb(61, 141, 153);
+		color: #fff;
+		padding: 0.75rem 2rem; /* px-8 py-3 */
+		font-weight: 600; /* font-semibold */
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		white-space: nowrap;
+		cursor: pointer;
+		transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+		border: 1px solid transparent;
+	}
+	.btn-ngs:hover { background-color: rgb(54, 125, 136); }
+
+	/* Utility to apply the angled radius to any button */
+	.btn-angled {
+		border-radius: 15px 0 15px 0;
+	}
+}
